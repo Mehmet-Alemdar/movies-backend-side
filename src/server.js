@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 
+import '../mongo-connection.js'
+
 const app = express()
 
 app.use(cors())

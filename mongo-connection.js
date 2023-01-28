@@ -1,7 +1,13 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
-main().catch(err => console.log(err));
+mongoose.set('strictQuery', true);
+main()
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/movies');
+  try {
+    await mongoose.connect('mongodb://localhost/movies');
+    console.log("we're connected to mongodb");
+  } catch(err) {
+    console.log(err);
+  }
 }
