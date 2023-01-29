@@ -20,8 +20,12 @@ class BaseService {
   }
 
   async findById(id) {
-    return this.model.findById(id)
+    return await this.model.findById(id)
+  }
+
+  async findByProperty(property, value) {
+    return await this.model.find({ [property]: value })
   }
 }
 
-module.exports = BaseService
+export default BaseService
