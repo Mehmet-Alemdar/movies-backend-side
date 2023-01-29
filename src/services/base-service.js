@@ -23,3 +23,5 @@ class BaseService {
     return this.model.findById(id)
   }
 }
+
+module.exports = BaseService
