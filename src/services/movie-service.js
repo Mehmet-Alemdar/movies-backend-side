@@ -5,4 +5,4 @@ class MovieService extends BaseService {
 
 }
 
-module.exports = new MovieService(Movie)
+export default new MovieService(Movie)

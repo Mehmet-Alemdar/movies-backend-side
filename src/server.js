@@ -19,7 +19,7 @@ app.get('/', (req, res, next) => {
   res.send('Hi')
 })
 
-app.use('/api', router)
+app.use('/api', protect, router)
 
 app.post('/signup', createUser)
 app.post('/signin', signin)
