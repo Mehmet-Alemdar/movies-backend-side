@@ -26,7 +26,6 @@ class BaseService {
   async findByProperty(property, value) {
     return await this.model.findOne({ [property]: value })
   }
-  }
 }
 
 export default BaseService

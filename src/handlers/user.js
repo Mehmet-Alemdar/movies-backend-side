@@ -33,3 +33,34 @@ export const signin = async (req, res, next) => {
   res.json({ token })
 }
 
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserService.load()
+    res.json(users)
+  }catch(err){
+    return res.json({ error: err.message , description: 'Error getting users'})
+  }
+}
+
+export const getUser = async (req, res) => {
+  const { id } = req.params
+  try{
+    const user = await UserService.getUserById(id)
+    res.json(user)
+  }catch(err){
+    return res.json({ error: err.message , description: 'Error getting user'})
+  }
+}
+
+export const updateUser = async (req, res) => {
+  const { id } = req.params
+  const updatedUser = req.body
+  
+  try{
+    const user = await UserService.update(id, updatedUser)
+    res.json(user)
+  }catch(err){
+    return res.json({ error: err.message , description: 'Error updating user'})
+  }
+}
+

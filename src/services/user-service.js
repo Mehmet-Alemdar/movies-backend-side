@@ -9,6 +9,10 @@ class UserService extends BaseService {
   async getUserByEmail(email) {
     return await this.findByProperty("email", email)
   }
+
+  async getUserById(id) {
+    return await this.findByProperty("_id", id)
+  }
 }
 
 export default new UserService(User)
