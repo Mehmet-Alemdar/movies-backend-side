@@ -26,12 +26,10 @@ export const signin = async (req, res, next) => {
   const user = await UserService.getUserByEmail(req.body.email)
   if(!user) return res.json({ error: 'User not found' })
 
-  const isValid = comparePassword(req.body.password, user.password)
-
+  const isValid = await comparePassword(req.body.password, user.password)
   if(!isValid) return res.json({ error: 'Invalid password' })
 
   const token = createJWT({ id: user._id, email: user.email })
-
   res.json({ token })
 }
 
