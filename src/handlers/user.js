@@ -16,7 +16,7 @@ export const createUser = async (req, res, next) => {
 
     const token = createJWT({ id: newUser._id, email: newUser.email })
 
-    res.json({ token })
+    res.json({ token, id: newUser._id })
   } catch(err){
     return res.json({ error: err.message , description: 'Error creating user'})
   }
