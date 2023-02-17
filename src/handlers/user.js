@@ -30,7 +30,7 @@ export const signin = async (req, res, next) => {
   if(!isValid) return res.json({ error: 'Invalid password' })
 
   const token = createJWT({ id: user._id, email: user.email })
-  res.json({ token })
+  res.json({ token, id: user._id })
 }
 
 export const getAllUsers = async (req, res) => {
